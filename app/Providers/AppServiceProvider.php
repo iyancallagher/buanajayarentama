@@ -16,6 +16,9 @@ use App\Models\StokMasuk;
 use App\Observers\SparepartObserver;
 use App\Observers\StokMasukObserver;
 use App\Policies\PengajuanSparepartPolicy;
+use App\Models\SuratJalan;
+use App\Observers\SuratJalanObserver;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -37,5 +40,6 @@ class AppServiceProvider extends ServiceProvider
         Komponen::observe(KomponenObserver::class);
         Sparepart::observe(SparepartObserver::class);
         StokMasuk::observe(StokMasukObserver::class);
+        SuratJalan::observe(SuratJalanObserver::class);
     }
 }

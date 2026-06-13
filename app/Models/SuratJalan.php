@@ -48,8 +48,8 @@ class SuratJalan extends Model
             PengajuanSparepart::class
         );
     }
-    public function stokKeluars()
-    {
-        return $this->hasMany(StokKeluar::class);
-    }
+    // public function stokKeluars()
+    // {
+    //     return $this->hasMany(StokKeluar::class);
+    // }
 }

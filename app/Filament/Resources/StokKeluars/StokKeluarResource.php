@@ -9,6 +9,7 @@ use App\Filament\Resources\StokKeluars\Schemas\StokKeluarForm;
 use App\Filament\Resources\StokKeluars\Tables\StokKeluarsTable;
 use App\Models\StokKeluar;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,11 +19,12 @@ class StokKeluarResource extends Resource
 {
     protected static ?string $model = StokKeluar::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentMinus;
+    protected static string | UnitEnum | null $navigationGroup = 'Transaksi Barang';
 
     protected static ?string $recordTitleAttribute = 'StokKeluar';
 
-    public static function form(Schema $schema): Schema
+    public static function form(Schema $schema): Schema 
     {
         return StokKeluarForm::configure($schema);
     }

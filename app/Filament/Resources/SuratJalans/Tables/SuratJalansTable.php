@@ -31,12 +31,13 @@ class SuratJalansTable
                     ->searchable()
                     ->icon('heroicon-o-building-storefront'),
 
-                TextColumn::make('details_count')
-                    ->counts('details')
+                TextColumn::make('total_quantity')
                     ->label('Jumlah Item')
+                    ->state(function ($record) {
+                        return $record->details->sum('quantity');
+                    })
                     ->badge()
-                    ->color('info'),
-
+                    ->color('success'),
                 TextColumn::make('status')
                     ->badge()
                     ->color(

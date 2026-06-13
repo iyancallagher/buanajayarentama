@@ -8,4 +8,8 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateStokKeluar extends CreateRecord
 {
     protected static string $resource = StokKeluarResource::class;
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

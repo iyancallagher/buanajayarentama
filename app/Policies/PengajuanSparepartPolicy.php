@@ -77,16 +77,16 @@ class PengajuanSparepartPolicy
 
     public function approve(User $user): bool
     {
-        return $user->hasAnyRole(['super admin', 'manager', 'kepala gudang']);
+        return $user->hasAnyRole(['super admin', 'manager']);
     }
 
     public function reject(User $user): bool
     {
-        return $user->hasAnyRole(['super admin', 'manager', 'kepala gudang']);
+        return $user->hasAnyRole(['super admin', 'manager']);
     }
 
     public function createSuratJalan(User $user): bool
     {
-        return $user->hasAnyRole(['super admin', 'admin']);
+        return $user->hasAnyRole(['super admin', 'admin', 'kepala gudang']);
     }
 }
