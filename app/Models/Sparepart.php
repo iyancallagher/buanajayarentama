@@ -60,8 +60,8 @@ class Sparepart extends Model
                 : $value,
         );
     }
-    public function stokKeluars()
-{
-    return $this->hasMany(StokKeluar::class);
-}
+//     public function stokKeluars()
+// {
+//     return $this->hasMany(StokKeluar::class);
+// }
 }

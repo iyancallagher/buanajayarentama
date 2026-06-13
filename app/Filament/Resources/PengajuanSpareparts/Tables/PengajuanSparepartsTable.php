@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Collection;
 use App\Models\SuratJalan;
 use App\Models\SuratJalanDetail;
 use App\Models\PengajuanSparepart;
+use Illuminate\Support\Facades\Storage;
 
 class PengajuanSparepartsTable
 {
@@ -71,7 +72,7 @@ class PengajuanSparepartsTable
 
                 ImageColumn::make('foto')
                     ->label('Foto')
-                    ->disk('public')
+                    ->disk('s3')
                     ->stacked()
                     ->circular()
                     ->limit(3)
@@ -84,7 +85,7 @@ class PengajuanSparepartsTable
                             ->modalCancelActionLabel('Tutup')
                             ->modalContent(function ($record) {
                                 $images = collect($record->foto)->map(function ($image) {
-                                    $url = asset('storage/' . $image);
+                                    $url = Storage::disk('s3')->url($image);
                                     return "
                                         <div style='overflow:hidden; border-radius:16px; box-shadow:0 2px 10px rgba(0,0,0,.1);'>
                                             <img src='{$url}' style='width:100%; height:250px; object-fit:cover; display:block;'>

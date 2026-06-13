@@ -72,7 +72,7 @@ class PengajuanSparepartForm
 
                             ->multiple()
 
-                            ->disk('public')
+                            ->disk('')
 
                             ->visibility('public')
 
